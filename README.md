@@ -1,33 +1,31 @@
-# Compiled Object files
-*.slo
-*.lo
-*.o
-*.obj
+## Intro
 
-# Precompiled Headers
-*.gch
-*.pch
+2 kinds of nodes: sigmoid and linear
+random initialized weights
 
-# Compiled Dynamic libraries
-*.so
-*.dylib
-*.dll
+## Usage
 
-# Fortran module files
-*.mod
+get a simple net:
+```
+	Net net(vector<int> dimens);
+```
 
-# Compiled Static libraries
-*.lai
-*.la
-*.a
-*.lib
+set learning rate:
+```
+	net.setEta(int layerOrder, double eta);
+```
 
-# Executables
-*.exe
-*.out
-*.app
+set activation function type:
+```
+	net.setActive(int layerOrder, int type);	// 0 for sigmoid, other values for linear
+```
 
-# Dev C++
-*.dev
-*.layout
-*.win
+feedforward:
+```
+	vector<double> output = net.feedforward(vector<double> input);
+```
+
+backpropagate:
+```
+	net.backpropagate(vector<double> targets);
+```
