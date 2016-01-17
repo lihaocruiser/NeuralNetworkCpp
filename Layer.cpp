@@ -3,7 +3,7 @@
 #include <cmath>
 #include <iostream>
 
-Layer::Layer(int numNodes, int numInputs): mNumNodes(numNodes), mActivationType(0), mEta(0.1)
+Layer::Layer(int numInputs, int numNodes): mNumNodes(numNodes), mNumInputs(numInputs), mActivationType(0), mEta(0.1)
 {
 	std::cout << "Layer:"  << numInputs << "x" << numNodes << std::endl;
 	for (int i=0; i<mNumNodes; i++)

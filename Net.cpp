@@ -16,14 +16,28 @@ Net::Net(std::vector<int> dimens)
 	{
 		int dimIn = mDimens[i];
 		int dimOut = mDimens[i+1];
-		mLayers.push_back(Layer(dimOut, dimIn));
+		mLayers.push_back(Layer(dimIn, dimOut));
 	}
 	mNumInputs = mDimens[0];
 	mNumOutputs = mDimens[mDimens.size()-1];
 	mNumLayers = mDimens.size()-1;
 }
 
-void Net::setEta(int layerOrder, int eta)
+Net::Net(std::vector<Layer>& layers)
+{
+	mLayers = layers;
+	int i;
+	for (i = 0 ; i<mLayers.size(); i++)
+	{
+		mDimens.push_back(mLayers[i].mNumInputs);
+	}
+	mDimens.push_back(mLayers[i].mNumNodes);
+	mNumInputs = mDimens[0];
+	mNumOutputs = mDimens[mDimens.size()-1];
+	mNumLayers = mDimens.size()-1;
+}
+
+void Net::setEta(int layerOrder, double eta)
 {
 	if (mNumLayers<layerOrder) {
 		std::cout << "LayerOrder exceeds LayerNumber!" << std::endl;

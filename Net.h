@@ -19,8 +19,9 @@ private:
 public:
 
 	Net(std::vector<int> dimens);
-	
-	void setEta(int layerOrder, int eta);
+	Net(std::vector<Layer>& layers);
+
+	void setEta(int layerOrder, double eta);
 	void setActivation(int layerOrder, int activationType);
 	
 	std::vector<double> feedForward(std::vector<double> &inputs);

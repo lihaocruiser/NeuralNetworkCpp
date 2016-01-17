@@ -1,6 +1,7 @@
 ## Intro
 
 2 kinds of nodes: sigmoid and linear
+
 random initialized weights
 
 ## Usage
@@ -8,6 +9,10 @@ random initialized weights
 get a simple net:
 ```
 	Net net(vector<int> dimens);
+```
+or
+```
+	Net net(vector<Layer> layers);
 ```
 
 set learning rate:
